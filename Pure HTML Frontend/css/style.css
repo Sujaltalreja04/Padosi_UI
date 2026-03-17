@@ -1,0 +1,177 @@
+/* Basic Reset and Root styles */
+:root {
+    --primary-color: #0d9488;
+    --primary-light: #ccfbf1;
+    --claim-bg: #fff1f2;
+    --claim-text: #e11d48;
+    --review-bg: #f5f3ff;
+    --review-text: #7c3aed;
+    --text-color: #334155;
+    --light-bg: #f8fafc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.flex { display: flex; }
+.space-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.bg-light { background-color: var(--light-bg); }
+
+/* Navigation */
+.navbar {
+    padding: 1rem 0;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    margin: 0 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0f766e;
+}
+
+.btn-outline {
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-review {
+    background-color: var(--review-text);
+    color: white;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(to bottom right, var(--primary-light), white);
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+/* Sections & Grids */
+.services-section {
+    padding: 3rem 1rem;
+}
+
+.max-w-lg {
+    max-width: 800px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+/* Cards */
+.service-card {
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.claim-bg { background-color: var(--claim-bg); color: var(--claim-text); }
+.claim-card p { color: var(--claim-text); font-weight: 500; }
+
+.review-bg { background-color: var(--review-bg); color: var(--review-text); }
+.review-card p { color: var(--review-text); font-weight: 500; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .hide-mobile { display: none; }
+}
+
+.footer {
+    padding: 2rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 2rem;
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Pure HTML Version</title>
+    <!-- Use the existing CSS for base styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styling specific to the Admin Dashboard */
+        body {
+            background-color: var(--light-bg);
+            padding: 2rem;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dropdown {
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.375rem;
+            background: white;
+            font-size: 0.875rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 0.875rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .card-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 0.25rem;
+        }
+
+        /* Specific styles for alert box */
+        .alert-box {
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-title {
+            font-weight: 600;
+            color: #d97706;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-red {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .badge-yellow {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .badge-gray {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        /* Chart mockups */
+        .chart-placeholder {
+            height: 280px;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+        }
+
+        /* Progress bars */
+        .progress-row-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-bar-bg {
+            height: 0.5rem;
+            background-color: #f1f5f9;
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .list-metrics {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .list-metrics div {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Top Controls -->
+        <div class="controls-row">
+            <div>
+                <select class="dropdown">
+                    <option value="12m">Last 12 Months</option>
+                    <option value="6m">Last 6 Months</option>
+                    <option value="3m">Last 3 Months</option>
+                </select>
+            </div>
+            <button class="btn btn-outline">
+                ↓ Export CSV
+            </button>
+        </div>
+
+        <!-- KPI Cards Row 1 -->
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">👥</span>
+                </div>
+                <div class="card-value">1,245</div>
+                <div class="card-title">Total Agents</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">✅</span>
+                </div>
+                <div class="card-value">980</div>
+                <div class="card-title">Active</div>
+                <div class="card-subtitle">78%</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">📈</span>
+                    <span class="badge badge-gray">+12%</span>
+                </div>
+                <div class="card-value">142</div>
+                <div class="card-title">New This Month</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">🏢</span>
+                </div>
+                <div class="card-value">34</div>
+                <div class="card-title">Distributors</div>
+            </div>
+        </div>
+
+        <!-- KPI Cards Row 2 -->
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">🛡️</span>
+                </div>
+                <div class="card-value">85%</div>
+                <div class="card-title">Retention Rate</div>
+                <div class="card-subtitle">850/1000</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">🚀</span>
+                </div>
+                <div class="card-value">42%</div>
+                <div class="card-title">Upgrade Rate</div>
+                <div class="card-subtitle">Pro + Premium</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">👁️</span>
+                </div>
+                <div class="card-value">145,200</div>
+                <div class="card-title">Total Page Views</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="icon">📊</span>
+                </div>
+                <div class="card-value">12,450</div>
+                <div class="card-title">Total Leads</div>
+            </div>
+        </div>
+
+        <!-- Renewal Dues Alert box -->
+        <div class="alert-box">
+            <div class="alert-title">
+                <span>🔄 Theme Renewal Dues</span>
+            </div>
+            <div class="grid-4 text-center">
+                <div>
+                    <div class="card-value text-red">15</div>
+                    <span class="badge badge-red">Expired</span>
+                </div>
+                <div>
+                    <div class="card-value">42</div>
+                    <span class="badge badge-yellow">≤ 30 Days</span>
+                </div>
+                <div>
+                    <div class="card-value">86</div>
+                    <span class="badge badge-gray">31-60 Days</span>
+                </div>
+                <div>
+                    <div class="card-value">104</div>
+                    <span class="badge badge-gray">61-90 Days</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title" style="margin-bottom: 1rem; color: #0f172a;">MoM Registration Growth</div>
+                <div class="chart-placeholder">
+                    [ Area Chart visual here ]
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title" style="margin-bottom: 1rem; color: #0f172a;">Plan Distribution</div>
+                <div class="chart-placeholder">
+                    [ Pie Chart visual here ]
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title" style="margin-bottom: 1rem; color: #0f172a;">Top Cities</div>
+                <div class="chart-placeholder">
+                    [ Bar Chart visual here ]
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title" style="margin-bottom: 1rem; color: #0f172a;">Penetration & Engagement</div>
+
+                <!-- Progress bars -->
+                <div class="progress-row-label">
+                    <span>Starter Plan</span>
+                    <span>720 (58%)</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 58%; background-color: #94a3b8;"></div>
+                </div>
+
+                <div class="progress-row-label">
+                    <span>Professional Plan</span>
+                    <span>525 (42%)</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 42%;"></div>
+                </div>
+
+                <div class="list-metrics">
+                    <div>
+                        <span style="color: #64748b;">Avg Rating</span>
+                        <span style="font-weight: 600;">4.8 ⭐</span>
+                    </div>
+                    <div>
+                        <span style="color: #64748b;">Total Reviews</span>
+                        <span style="font-weight: 600;">3,450</span>
+                    </div>
+                    <div>
+                        <span style="color: #64748b;">Total Leads</span>
+                        <span style="font-weight: 600;">12,450</span>
+                    </div>
+                    <div>
+                        <span style="color: #64748b;">Total Page Views</span>
+                        <span style="font-weight: 600;">145,200</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
